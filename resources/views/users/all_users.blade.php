@@ -6,9 +6,9 @@
 
 
 
-<table class="table table-hover">
+<table class="table  table-hover">
     <thead>
-    <tr>
+    <tr >
         <th>شناسه</th>
         <th>نام</th>
         <th>ایمیل</th>
@@ -25,7 +25,7 @@
 
 
     <tr>
-        <th>1</th>
+        <th>{{$user->id}}</th>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
 

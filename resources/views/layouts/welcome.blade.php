@@ -44,15 +44,15 @@
                 <a class="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
             </li>
 
-            <!--<li class="nav-item p-x-1">
-                <a class="nav-link" href="#">داشبورد</a>
-            </li>
-            <li class="nav-item p-x-1">
-                <a class="nav-link" href="#">Users</a>
-            </li>
-            <li class="nav-item p-x-1">
-                <a class="nav-link" href="#">Settings</a>
-            </li>-->
+{{--            <li class="nav-item p-x-1">--}}
+{{--                <a class="nav-link" href="#">داشبورد</a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item p-x-1">--}}
+{{--                <a class="nav-link" href="#">Users</a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item p-x-1">--}}
+{{--                <a class="nav-link" href="#">Settings</a>--}}
+{{--            </li>--}}
         </ul>
         <ul class="nav navbar-nav pull-left hidden-md-down">
             <li class="nav-item">
@@ -91,7 +91,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                <a class="nav-link" href="{{route('panel.index')}}"><i class="icon-speedometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
             </li>
 
             <li class="nav-title">
@@ -101,6 +101,7 @@
                 <a class="nav-link" href="#"><i class="icon-user-follow"></i> ثبت کاربر</a>
                 <a class="nav-link" href="#"><i class="icon-people"></i> لیست کاربران</a>
                 <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
+                <a class="nav-link" href={{route('panel.index')}}><i class="icon-user-following"></i> امار</a>
             </li>
 
             <li class="nav-title">
@@ -116,29 +117,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="icon-people"></i> کاربران</a>
                 <a class="nav-link" href="#"><i class="icon-docs"></i>  فایل ها</a>
-            </li>
-            <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> ثبت کاربر جدید</a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-buttons.html"><i class="icon-puzzle"></i> لیست کاربران</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i> Social Buttons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-cards.html"><i class="icon-puzzle"></i> Cards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-forms.html"><i class="icon-puzzle"></i> Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-switches.html"><i class="icon-puzzle"></i> Switches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="components-tables.html"><i class="icon-puzzle"></i> Tables</a>
-                    </li>
-                </ul>
             </li>
 
             <!--<li class="nav-item nav-dropdown">
@@ -197,106 +175,13 @@
         <li class="breadcrumb-menu">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
-                <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;داشبرد</a>
+                <a class="btn btn-secondary" href=".."><i class="icon-graph"></i> &nbsp;داشبرد</a>
                 <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;تنظیمات</a>
             </div>
         </li>
     </ol>
 
-    <div class="container-fluid">
-
-        <div class="animated fadeIn">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-inverse card-primary">
-                        <div class="card-block p-b-0">
-                            <div class="btn-group pull-left">
-                                <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                            <h4 class="m-b-0">9.823</h4>
-                            <p>کاربر آنلاین</p>
-                        </div>
-                        <div class="chart-wrapper p-x-1" style="height:70px;">
-                            <canvas id="card-chart1" class="chart" height="70"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!--/col-->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-inverse card-info">
-                        <div class="card-block p-b-0">
-                            <button type="button" class="btn btn-transparent active p-a-0 pull-left">
-                                <i class="icon-location-pin"></i>
-                            </button>
-                            <h4 class="m-b-0">9.823</h4>
-                            <p>کاربر آنلاین</p>
-                        </div>
-                        <div class="chart-wrapper p-x-1" style="height:70px;">
-                            <canvas id="card-chart2" class="chart" height="70"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!--/col-->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-inverse card-warning">
-                        <div class="card-block p-b-0">
-                            <div class="btn-group pull-left">
-                                <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                            <h4 class="m-b-0">9.823</h4>
-                            <p>کاربر آنلاین</p>
-                        </div>
-                        <div class="chart-wrapper" style="height:70px;">
-                            <canvas id="card-chart3" class="chart" height="70"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!--/col-->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-inverse card-danger">
-                        <div class="card-block p-b-0">
-                            <div class="btn-group pull-left">
-                                <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-settings"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                            <h4 class="m-b-0">9.823</h4>
-                            <p>کاربر آنلاین</p>
-                        </div>
-                        <div class="chart-wrapper p-x-1" style="height:70px;">
-                            <canvas id="card-chart4" class="chart" height="70"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!--/col-->
-
-            </div>
-            <!--/row-->
-        </div>
-
-    </div>
+    @yield('content')
     <!--/.container-fluid-->
 </main>
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Categore;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index')   ;
+        return view('post.index'    ,   ['posts'    =>  Post::all()])   ;
     }
 
     /**
@@ -34,9 +37,24 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        dd($request->all());
+
+
+        $data   =   $request->except('categores')     ;
+
+
+
+
+       $post =  auth()->user()->posts()->create($data);
+       $post->categore()->attach(request('categores'))    ;
+
+       return redirect(route('post.index')) ;
+
+
+
+
+
     }
 
     /**

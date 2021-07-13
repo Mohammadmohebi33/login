@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class categore extends Model
 {
     use HasFactory;
+
+
+
+
+
+    public function post()
+    {
+        return  $this->belongsToMany(Post::class)   ;
+    }
+
+
 }

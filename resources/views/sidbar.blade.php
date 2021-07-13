@@ -10,24 +10,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href={{route('panel.create')}}><i class="icon-user-follow"></i> ثبت کاربر</a>
-                <a class="nav-link" href="#"><i class="icon-people"></i> لیست کاربران</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
-                <a class="nav-link" href={{route('panel.index')}}><i class="icon-user-following"></i> امار</a>
-            </li>
-
-            <li class="nav-title">
-                مدیریت فایل ها
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-docs"></i> لیست فایل ها</a>
-            </li>
-
-            <li class="nav-title">
-                گزارش گیری
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-people"></i> کاربران</a>
-                <a class="nav-link" href="#"><i class="icon-docs"></i>  فایل ها</a>
+                <a class="nav-link" href={{route('panel.index')}}><i class="icon-people"></i>  لیست کاربران</a>
+                <a class="nav-link" href="#"><i class="icon-user-following"></i>  دسترسی کاربران</a>
+                <a class="nav-link" href="{{route('post.index')}}"><i class="icon-user-following"></i> مطالب</a>
+                <a class="nav-link" href="{{route('post.create')}}"><i class="icon-user-following"></i> ثبت مطلب</a>
             </li>
 
 

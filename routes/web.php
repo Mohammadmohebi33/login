@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('panel',   UserController::class)   ;
+Route::resource('post', PostController::class)    ;
 
 Auth::routes();
 

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequesst;
-use App\Models\Role;
-use App\Models\User;
+use App\Models\Categore;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        return view('users.index'   ,  ['users'    =>  User::all()] )  ;
+        return view('post.index')   ;
     }
 
     /**
-     *
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -29,8 +25,7 @@ class UserController extends Controller
     public function create()
     {
 
-        return view('users.create_user' ,   ['roles'    =>  Role::all()])     ;
-
+        return view('post.create'   ,   ['categores'    =>  Categore::all()]  ) ;
     }
 
     /**
@@ -39,17 +34,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequesst $request)
+    public function store(Request $request)
     {
-
-       $data    =   $request->all() ;
-       $role    =    $data['role']  ;
-       $data['password']   =  bcrypt( $data['password'])   ;
-
-       $user    =   User::create($request->all())    ;
-       $user->role()->attach($role)    ;
-
-       return redirect(route('panel.index'))    ;
+        dd($request->all());
     }
 
     /**
@@ -71,7 +58,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -94,8 +81,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-       $user    =   User::find($id) ;
-       $user->delete()  ;
-       return back()        ;
+        //
     }
 }

@@ -8,7 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PostController extends UploadImageController
 {
     /**
      * Display a listing of the resource.
@@ -40,12 +40,14 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
 
-
-        $data   =   $request->except('categores')     ;
-
+       $data   =   $request->except('categores')     ;
 
 
+       $imageurl =  $this->uploadImage(request()->file('avatar')) ;
 
+
+
+       $data['avatar']  =   $imageurl   ;
        $post =  auth()->user()->posts()->create($data);
        $post->categore()->attach(request('categores'))    ;
 

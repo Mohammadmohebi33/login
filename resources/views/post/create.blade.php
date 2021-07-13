@@ -11,7 +11,7 @@
         <div class="col-md-10 offset-md-1">
 
 
-            <form   method="post"   action={{route('post.store')}}>
+            <form  enctype="multipart/form-data" method="post"   action={{route('post.store')}} >
                 @csrf
 
                 <div class="form-group">
@@ -89,13 +89,13 @@
 
 
 
-{{--                <div class="form-group">--}}
-{{--                    <label for="title">تصویر اصلی</label>--}}
-{{--                    <input type="file" name="post_image" class="form-control-file" id="post_image"  placeholder="entet title">--}}
-{{--                    @if($errors->has('post_image'))--}}
-{{--                        <p style="color: red">{{ $errors->first('post_image') }}</p>--}}
-{{--                    @endif--}}
-{{--                </div>--}}
+                <div class="form-group">
+                    <label for="title">تصویر اصلی</label>
+                    <input type="file" name="avatar" class="form-control-file" id="post_image"  placeholder="entet title">
+                    @if($errors->has('avatar'))
+                        <p style="color: red">{{ $errors->first('avatar') }}</p>
+                    @endif
+                </div>
 
 
 

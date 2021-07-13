@@ -53,12 +53,12 @@
 
 
                 <td>
-                    <form method="post" action="#" >
+                    <form method="post" action={{route('post.destroy' ,   $post->id)}}>
                         @csrf
                         @method('DELETE')
 
 
-                        <button class="btn btn-danger">حذف کاربر</button>
+                        <button class="btn btn-danger">حذف پست </button>
                     </form>
                 </td>
             </tr>

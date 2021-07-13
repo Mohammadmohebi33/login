@@ -78,7 +78,11 @@ class PostController extends UploadImageController
      */
     public function edit($id)
     {
-        //
+
+        $post   =   Post::find($id) ;
+        $categores  =   Categore::all();
+
+        return view('post.edit' ,   ['post' =>  $post       ,   'categores' =>  $categores]) ;
     }
 
     /**
@@ -88,9 +92,19 @@ class PostController extends UploadImageController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post   =   Post::find($id) ;
+
+
+        $data   =   $request->except('categores')     ;
+        $imageurl =  $this->uploadImage(request()->file('avatar')) ;
+        $data['avatar']  =   $imageurl   ;
+
+        $post->update($data)    ;
+        $post->categore()->detach($post->categore)  ;
+        $post->categore()->attach(request('categores'))    ;
+        return redirect(route('post.index'))    ;
     }
 
     /**

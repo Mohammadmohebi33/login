@@ -98,9 +98,17 @@ class PostController extends UploadImageController
 
 
         $data   =   $request->except('categores')     ;
+
+
+         if ($request->hasFile('avatar')){
+
         $imageurl =  $this->uploadImage(request()->file('avatar')) ;
         $data['avatar']  =   $imageurl   ;
-
+         
+         }
+         
+       $data['avatar']  =   $post->avatar ;
+       
         $post->update($data)    ;
         $post->categore()->detach($post->categore)  ;
         $post->categore()->attach(request('categores'))    ;

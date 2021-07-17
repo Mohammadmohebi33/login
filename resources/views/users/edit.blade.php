@@ -10,12 +10,13 @@
         <div class="col-md-10 offset-md-1">
 
 
-                <form   method="post"   action={{route('panel.store')}}>
+                <form  enctype="multipart/form-data" method="post"   action={{route('panel.update' , $user->id)}}>
                     @csrf
+                    @method('PUT')
 
                     <div class="form-group">
                         <label for="name">نام کاربری</label>
-                        <input type="text" name="name" class="form-control" id="name" aria-describedby="" placeholder="entet title">
+                        <input type="text" name="name" class="form-control" id="name" aria-describedby="" placeholder="entet title" value="{{$user->name}}">
                         @if($errors->has('name'))
                             <p style="color: red">{{ $errors->first('name') }}</p>
                         @endif
@@ -25,20 +26,13 @@
 
                     <div class="form-group">
                         <label for="email">ایمیل</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="" placeholder="entet title">
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="" placeholder="entet title" value="{{$user->email}}">
                         @if($errors->has('email'))
                             <p style="color: red">{{ $errors->first('email') }}</p>
                         @endif
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="email">رمز عبور</label>
-                        <input type="password" name="password" class="form-control" id="password" aria-describedby="" placeholder="entet title">
-                        @if($errors->has('password'))
-                            <p style="color: red">{{ $errors->first('password') }}</p>
-                        @endif
-                    </div>
 
 
 
@@ -46,8 +40,8 @@
                         <label for="exampleFormControlSelect1">Example select</label>
                         <select class="form-control" id="exampleFormControlSelect1" name="role">
 
-                            @foreach($roles    as $roel)
-                            <option value="{{$roel->id}}">{{$roel->name}}</option>
+                            @foreach($roles   as $role)
+                            <option value="{{$role->id}}">{{$role->name}}</option>
                             @endforeach
 
                         </select>
@@ -57,6 +51,18 @@
 
 
 
+                    <div class="form-group">
+                        <label for="title">تصویر اصلی</label>
+                        <input type="file" name="avatar" class="form-control-file" id="user_image"  placeholder="entet title">
+
+                        @if($user->avatar != null)
+                        <img src='/storage/user/{{$user->avatar}}' width="300px" height="200px">
+                        @endif
+
+                        @if($errors->has('avatar'))
+                            <p style="color: red">{{ $errors->first('avatar') }}</p>
+                        @endif
+                    </div>
 
 
 

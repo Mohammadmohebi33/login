@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//})->name('root');
+Route::get('/', function () {
+   return 'mohamamd'	;	
+})->name('root');
 
 
 
@@ -34,3 +34,10 @@ Route::resource('post', PostController::class)    ;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/admin'	,	function(){
+
+	return 'hello'	;	
+
+});

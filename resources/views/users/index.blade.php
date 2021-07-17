@@ -52,7 +52,7 @@
 
                 <td>
 
-                    <form method="post" action="#" >
+                    <form method="get" action={{route('panel.edit'       ,   $user->id)}} >
                         @csrf
 
 

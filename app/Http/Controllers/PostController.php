@@ -14,6 +14,7 @@ class PostController extends UploadImageController
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -104,11 +105,11 @@ class PostController extends UploadImageController
 
         $imageurl =  $this->uploadImage(request()->file('avatar')) ;
         $data['avatar']  =   $imageurl   ;
-         
+
          }
-         
+
        $data['avatar']  =   $post->avatar ;
-       
+
         $post->update($data)    ;
         $post->categore()->detach($post->categore)  ;
         $post->categore()->attach(request('categores'))    ;

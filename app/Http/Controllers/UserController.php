@@ -7,7 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserController extends UploadImageController
 {
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class UserController extends Controller
        $role    =    $data['role']  ;
        $data['password']   =  bcrypt( $data['password'])   ;
 
-       $user    =   User::create($request->all())    ;
+       $user    =   User::create($data)    ;
        $user->role()->attach($role)    ;
 
        return redirect(route('panel.index'))    ;
@@ -72,6 +72,9 @@ class UserController extends Controller
     public function edit($id)
     {
 
+        $user   =   User::find($id) ;
+        return view('users.edit'    ,   ['user' => $user , 'roles' => Role::all()])   ;
+
     }
 
     /**
@@ -83,7 +86,32 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+       $data = $request->except('role')    ;
+       $role    =   $request->only('role')  ;
+       $user = User::find($id)  ;
+
+
+
+
+
+
+
+        if ($request->hasFile('avatar')) {
+            $imageurl = $this->uploadImage(request()->file('avatar'));
+
+            $data['avatar'] =   $imageurl   ;
+
+        }
+
+
+
+        $user->update($data)  ;
+        $user->role()->detach($user->role)  ;
+        $user->role()->attach($role)    ;
+        return redirect(route('panel.index'))    ;
+
+
     }
 
     /**
